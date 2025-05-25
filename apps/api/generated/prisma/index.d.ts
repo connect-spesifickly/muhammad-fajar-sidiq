@@ -1416,25 +1416,28 @@ export namespace Prisma {
   export type AccountMinAggregateOutputType = {
     id: string | null
     name: string | null
-    password: string | null
     email: string | null
+    password: string | null
     role: $Enums.AccountRole | null
+    isVerified: boolean | null
   }
 
   export type AccountMaxAggregateOutputType = {
     id: string | null
     name: string | null
-    password: string | null
     email: string | null
+    password: string | null
     role: $Enums.AccountRole | null
+    isVerified: boolean | null
   }
 
   export type AccountCountAggregateOutputType = {
     id: number
     name: number
-    password: number
     email: number
+    password: number
     role: number
+    isVerified: number
     _all: number
   }
 
@@ -1442,25 +1445,28 @@ export namespace Prisma {
   export type AccountMinAggregateInputType = {
     id?: true
     name?: true
-    password?: true
     email?: true
+    password?: true
     role?: true
+    isVerified?: true
   }
 
   export type AccountMaxAggregateInputType = {
     id?: true
     name?: true
-    password?: true
     email?: true
+    password?: true
     role?: true
+    isVerified?: true
   }
 
   export type AccountCountAggregateInputType = {
     id?: true
     name?: true
-    password?: true
     email?: true
+    password?: true
     role?: true
+    isVerified?: true
     _all?: true
   }
 
@@ -1539,9 +1545,10 @@ export namespace Prisma {
   export type AccountGroupByOutputType = {
     id: string
     name: string
-    password: string
     email: string
+    password: string
     role: $Enums.AccountRole
+    isVerified: boolean
     _count: AccountCountAggregateOutputType | null
     _min: AccountMinAggregateOutputType | null
     _max: AccountMaxAggregateOutputType | null
@@ -1564,9 +1571,10 @@ export namespace Prisma {
   export type AccountSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    password?: boolean
     email?: boolean
+    password?: boolean
     role?: boolean
+    isVerified?: boolean
     serviceJobs?: boolean | Account$serviceJobsArgs<ExtArgs>
     _count?: boolean | AccountCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["account"]>
@@ -1574,28 +1582,31 @@ export namespace Prisma {
   export type AccountSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    password?: boolean
     email?: boolean
+    password?: boolean
     role?: boolean
+    isVerified?: boolean
   }, ExtArgs["result"]["account"]>
 
   export type AccountSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-    password?: boolean
     email?: boolean
+    password?: boolean
     role?: boolean
+    isVerified?: boolean
   }, ExtArgs["result"]["account"]>
 
   export type AccountSelectScalar = {
     id?: boolean
     name?: boolean
-    password?: boolean
     email?: boolean
+    password?: boolean
     role?: boolean
+    isVerified?: boolean
   }
 
-  export type AccountOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "password" | "email" | "role", ExtArgs["result"]["account"]>
+  export type AccountOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "role" | "isVerified", ExtArgs["result"]["account"]>
   export type AccountInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     serviceJobs?: boolean | Account$serviceJobsArgs<ExtArgs>
     _count?: boolean | AccountCountOutputTypeDefaultArgs<ExtArgs>
@@ -1611,9 +1622,10 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
-      password: string
       email: string
+      password: string
       role: $Enums.AccountRole
+      isVerified: boolean
     }, ExtArgs["result"]["account"]>
     composites: {}
   }
@@ -2040,9 +2052,10 @@ export namespace Prisma {
   interface AccountFieldRefs {
     readonly id: FieldRef<"Account", 'String'>
     readonly name: FieldRef<"Account", 'String'>
-    readonly password: FieldRef<"Account", 'String'>
     readonly email: FieldRef<"Account", 'String'>
+    readonly password: FieldRef<"Account", 'String'>
     readonly role: FieldRef<"Account", 'AccountRole'>
+    readonly isVerified: FieldRef<"Account", 'Boolean'>
   }
     
 
@@ -2641,7 +2654,7 @@ export namespace Prisma {
     fullName: string
     deviceId: string
     merkId: string
-    devicePhoto: string
+    devicePhoto: string | null
     complaint: string
     preferredPickupDate: Date | null
     preferredPickupTime: string | null
@@ -2754,7 +2767,7 @@ export namespace Prisma {
       fullName: string
       deviceId: string
       merkId: string
-      devicePhoto: string
+      devicePhoto: string | null
       complaint: string
       preferredPickupDate: Date | null
       preferredPickupTime: string | null
@@ -5853,7 +5866,7 @@ export namespace Prisma {
     customerId: string
     accountId: string | null
     status: $Enums.ServiceJobStatus
-    descriptionOfDamage: string
+    descriptionOfDamage: string | null
     updatedAt: Date | null
     endAt: Date | null
     _count: ServiceJobCountAggregateOutputType | null
@@ -5951,7 +5964,7 @@ export namespace Prisma {
       customerId: string
       accountId: string | null
       status: $Enums.ServiceJobStatus
-      descriptionOfDamage: string
+      descriptionOfDamage: string | null
       updatedAt: Date | null
       endAt: Date | null
     }, ExtArgs["result"]["serviceJob"]>
@@ -6837,9 +6850,10 @@ export namespace Prisma {
   export const AccountScalarFieldEnum: {
     id: 'id',
     name: 'name',
-    password: 'password',
     email: 'email',
-    role: 'role'
+    password: 'password',
+    role: 'role',
+    isVerified: 'isVerified'
   };
 
   export type AccountScalarFieldEnum = (typeof AccountScalarFieldEnum)[keyof typeof AccountScalarFieldEnum]
@@ -6949,6 +6963,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'DateTime'
    */
   export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
@@ -6973,13 +6994,6 @@ export namespace Prisma {
    * Reference to a field of type 'PickupStatus[]'
    */
   export type ListEnumPickupStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PickupStatus[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -7020,39 +7034,43 @@ export namespace Prisma {
     NOT?: AccountWhereInput | AccountWhereInput[]
     id?: StringFilter<"Account"> | string
     name?: StringFilter<"Account"> | string
-    password?: StringFilter<"Account"> | string
     email?: StringFilter<"Account"> | string
+    password?: StringFilter<"Account"> | string
     role?: EnumAccountRoleFilter<"Account"> | $Enums.AccountRole
+    isVerified?: BoolFilter<"Account"> | boolean
     serviceJobs?: ServiceJobListRelationFilter
   }
 
   export type AccountOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-    password?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     role?: SortOrder
+    isVerified?: SortOrder
     serviceJobs?: ServiceJobOrderByRelationAggregateInput
   }
 
   export type AccountWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     name?: string
-    password?: string
     email?: string
+    password?: string
     AND?: AccountWhereInput | AccountWhereInput[]
     OR?: AccountWhereInput[]
     NOT?: AccountWhereInput | AccountWhereInput[]
     role?: EnumAccountRoleFilter<"Account"> | $Enums.AccountRole
+    isVerified?: BoolFilter<"Account"> | boolean
     serviceJobs?: ServiceJobListRelationFilter
-  }, "id" | "name" | "password" | "email">
+  }, "id" | "name" | "email" | "password">
 
   export type AccountOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-    password?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     role?: SortOrder
+    isVerified?: SortOrder
     _count?: AccountCountOrderByAggregateInput
     _max?: AccountMaxOrderByAggregateInput
     _min?: AccountMinOrderByAggregateInput
@@ -7064,9 +7082,10 @@ export namespace Prisma {
     NOT?: AccountScalarWhereWithAggregatesInput | AccountScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Account"> | string
     name?: StringWithAggregatesFilter<"Account"> | string
-    password?: StringWithAggregatesFilter<"Account"> | string
     email?: StringWithAggregatesFilter<"Account"> | string
+    password?: StringWithAggregatesFilter<"Account"> | string
     role?: EnumAccountRoleWithAggregatesFilter<"Account"> | $Enums.AccountRole
+    isVerified?: BoolWithAggregatesFilter<"Account"> | boolean
   }
 
   export type CustomerWhereInput = {
@@ -7077,7 +7096,7 @@ export namespace Prisma {
     fullName?: StringFilter<"Customer"> | string
     deviceId?: StringFilter<"Customer"> | string
     merkId?: StringFilter<"Customer"> | string
-    devicePhoto?: StringFilter<"Customer"> | string
+    devicePhoto?: StringNullableFilter<"Customer"> | string | null
     complaint?: StringFilter<"Customer"> | string
     preferredPickupDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     preferredPickupTime?: StringNullableFilter<"Customer"> | string | null
@@ -7093,7 +7112,7 @@ export namespace Prisma {
     fullName?: SortOrder
     deviceId?: SortOrder
     merkId?: SortOrder
-    devicePhoto?: SortOrder
+    devicePhoto?: SortOrderInput | SortOrder
     complaint?: SortOrder
     preferredPickupDate?: SortOrderInput | SortOrder
     preferredPickupTime?: SortOrderInput | SortOrder
@@ -7112,7 +7131,7 @@ export namespace Prisma {
     fullName?: StringFilter<"Customer"> | string
     deviceId?: StringFilter<"Customer"> | string
     merkId?: StringFilter<"Customer"> | string
-    devicePhoto?: StringFilter<"Customer"> | string
+    devicePhoto?: StringNullableFilter<"Customer"> | string | null
     complaint?: StringFilter<"Customer"> | string
     preferredPickupDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     preferredPickupTime?: StringNullableFilter<"Customer"> | string | null
@@ -7128,7 +7147,7 @@ export namespace Prisma {
     fullName?: SortOrder
     deviceId?: SortOrder
     merkId?: SortOrder
-    devicePhoto?: SortOrder
+    devicePhoto?: SortOrderInput | SortOrder
     complaint?: SortOrder
     preferredPickupDate?: SortOrderInput | SortOrder
     preferredPickupTime?: SortOrderInput | SortOrder
@@ -7147,7 +7166,7 @@ export namespace Prisma {
     fullName?: StringWithAggregatesFilter<"Customer"> | string
     deviceId?: StringWithAggregatesFilter<"Customer"> | string
     merkId?: StringWithAggregatesFilter<"Customer"> | string
-    devicePhoto?: StringWithAggregatesFilter<"Customer"> | string
+    devicePhoto?: StringNullableWithAggregatesFilter<"Customer"> | string | null
     complaint?: StringWithAggregatesFilter<"Customer"> | string
     preferredPickupDate?: DateTimeNullableWithAggregatesFilter<"Customer"> | Date | string | null
     preferredPickupTime?: StringNullableWithAggregatesFilter<"Customer"> | string | null
@@ -7244,7 +7263,7 @@ export namespace Prisma {
     customerId?: StringFilter<"ServiceJob"> | string
     accountId?: StringNullableFilter<"ServiceJob"> | string | null
     status?: EnumServiceJobStatusFilter<"ServiceJob"> | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFilter<"ServiceJob"> | string
+    descriptionOfDamage?: StringNullableFilter<"ServiceJob"> | string | null
     updatedAt?: DateTimeNullableFilter<"ServiceJob"> | Date | string | null
     endAt?: DateTimeNullableFilter<"ServiceJob"> | Date | string | null
     customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
@@ -7257,7 +7276,7 @@ export namespace Prisma {
     customerId?: SortOrder
     accountId?: SortOrderInput | SortOrder
     status?: SortOrder
-    descriptionOfDamage?: SortOrder
+    descriptionOfDamage?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     endAt?: SortOrderInput | SortOrder
     customer?: CustomerOrderByWithRelationInput
@@ -7273,7 +7292,7 @@ export namespace Prisma {
     customerId?: StringFilter<"ServiceJob"> | string
     accountId?: StringNullableFilter<"ServiceJob"> | string | null
     status?: EnumServiceJobStatusFilter<"ServiceJob"> | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFilter<"ServiceJob"> | string
+    descriptionOfDamage?: StringNullableFilter<"ServiceJob"> | string | null
     updatedAt?: DateTimeNullableFilter<"ServiceJob"> | Date | string | null
     endAt?: DateTimeNullableFilter<"ServiceJob"> | Date | string | null
     customer?: XOR<CustomerScalarRelationFilter, CustomerWhereInput>
@@ -7286,7 +7305,7 @@ export namespace Prisma {
     customerId?: SortOrder
     accountId?: SortOrderInput | SortOrder
     status?: SortOrder
-    descriptionOfDamage?: SortOrder
+    descriptionOfDamage?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     endAt?: SortOrderInput | SortOrder
     _count?: ServiceJobCountOrderByAggregateInput
@@ -7303,7 +7322,7 @@ export namespace Prisma {
     customerId?: StringWithAggregatesFilter<"ServiceJob"> | string
     accountId?: StringNullableWithAggregatesFilter<"ServiceJob"> | string | null
     status?: EnumServiceJobStatusWithAggregatesFilter<"ServiceJob"> | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringWithAggregatesFilter<"ServiceJob"> | string
+    descriptionOfDamage?: StringNullableWithAggregatesFilter<"ServiceJob"> | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"ServiceJob"> | Date | string | null
     endAt?: DateTimeNullableWithAggregatesFilter<"ServiceJob"> | Date | string | null
   }
@@ -7311,67 +7330,74 @@ export namespace Prisma {
   export type AccountCreateInput = {
     id?: string
     name: string
-    password: string
     email: string
+    password: string
     role?: $Enums.AccountRole
+    isVerified?: boolean
     serviceJobs?: ServiceJobCreateNestedManyWithoutAccountInput
   }
 
   export type AccountUncheckedCreateInput = {
     id?: string
     name: string
-    password: string
     email: string
+    password: string
     role?: $Enums.AccountRole
+    isVerified?: boolean
     serviceJobs?: ServiceJobUncheckedCreateNestedManyWithoutAccountInput
   }
 
   export type AccountUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: EnumAccountRoleFieldUpdateOperationsInput | $Enums.AccountRole
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     serviceJobs?: ServiceJobUpdateManyWithoutAccountNestedInput
   }
 
   export type AccountUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: EnumAccountRoleFieldUpdateOperationsInput | $Enums.AccountRole
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
     serviceJobs?: ServiceJobUncheckedUpdateManyWithoutAccountNestedInput
   }
 
   export type AccountCreateManyInput = {
     id?: string
     name: string
-    password: string
     email: string
+    password: string
     role?: $Enums.AccountRole
+    isVerified?: boolean
   }
 
   export type AccountUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: EnumAccountRoleFieldUpdateOperationsInput | $Enums.AccountRole
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type AccountUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: EnumAccountRoleFieldUpdateOperationsInput | $Enums.AccountRole
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type CustomerCreateInput = {
     id?: string
     fullName: string
-    devicePhoto: string
+    devicePhoto?: string | null
     complaint: string
     preferredPickupDate?: Date | string | null
     preferredPickupTime?: string | null
@@ -7387,7 +7413,7 @@ export namespace Prisma {
     fullName: string
     deviceId: string
     merkId: string
-    devicePhoto: string
+    devicePhoto?: string | null
     complaint: string
     preferredPickupDate?: Date | string | null
     preferredPickupTime?: string | null
@@ -7399,7 +7425,7 @@ export namespace Prisma {
   export type CustomerUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7415,7 +7441,7 @@ export namespace Prisma {
     fullName?: StringFieldUpdateOperationsInput | string
     deviceId?: StringFieldUpdateOperationsInput | string
     merkId?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7429,7 +7455,7 @@ export namespace Prisma {
     fullName: string
     deviceId: string
     merkId: string
-    devicePhoto: string
+    devicePhoto?: string | null
     complaint: string
     preferredPickupDate?: Date | string | null
     preferredPickupTime?: string | null
@@ -7440,7 +7466,7 @@ export namespace Prisma {
   export type CustomerUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7453,7 +7479,7 @@ export namespace Prisma {
     fullName?: StringFieldUpdateOperationsInput | string
     deviceId?: StringFieldUpdateOperationsInput | string
     merkId?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null
@@ -7543,7 +7569,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     status: $Enums.ServiceJobStatus
-    descriptionOfDamage: string
+    descriptionOfDamage?: string | null
     updatedAt?: Date | string | null
     endAt?: Date | string | null
     customer: CustomerCreateNestedOneWithoutServiceJobsInput
@@ -7556,7 +7582,7 @@ export namespace Prisma {
     customerId: string
     accountId?: string | null
     status: $Enums.ServiceJobStatus
-    descriptionOfDamage: string
+    descriptionOfDamage?: string | null
     updatedAt?: Date | string | null
     endAt?: Date | string | null
   }
@@ -7565,7 +7591,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: EnumServiceJobStatusFieldUpdateOperationsInput | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFieldUpdateOperationsInput | string
+    descriptionOfDamage?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customer?: CustomerUpdateOneRequiredWithoutServiceJobsNestedInput
@@ -7578,7 +7604,7 @@ export namespace Prisma {
     customerId?: StringFieldUpdateOperationsInput | string
     accountId?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumServiceJobStatusFieldUpdateOperationsInput | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFieldUpdateOperationsInput | string
+    descriptionOfDamage?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -7589,7 +7615,7 @@ export namespace Prisma {
     customerId: string
     accountId?: string | null
     status: $Enums.ServiceJobStatus
-    descriptionOfDamage: string
+    descriptionOfDamage?: string | null
     updatedAt?: Date | string | null
     endAt?: Date | string | null
   }
@@ -7598,7 +7624,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: EnumServiceJobStatusFieldUpdateOperationsInput | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFieldUpdateOperationsInput | string
+    descriptionOfDamage?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -7609,7 +7635,7 @@ export namespace Prisma {
     customerId?: StringFieldUpdateOperationsInput | string
     accountId?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumServiceJobStatusFieldUpdateOperationsInput | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFieldUpdateOperationsInput | string
+    descriptionOfDamage?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -7636,6 +7662,11 @@ export namespace Prisma {
     not?: NestedEnumAccountRoleFilter<$PrismaModel> | $Enums.AccountRole
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type ServiceJobListRelationFilter = {
     every?: ServiceJobWhereInput
     some?: ServiceJobWhereInput
@@ -7649,25 +7680,28 @@ export namespace Prisma {
   export type AccountCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    password?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     role?: SortOrder
+    isVerified?: SortOrder
   }
 
   export type AccountMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    password?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     role?: SortOrder
+    isVerified?: SortOrder
   }
 
   export type AccountMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-    password?: SortOrder
     email?: SortOrder
+    password?: SortOrder
     role?: SortOrder
+    isVerified?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -7698,15 +7732,12 @@ export namespace Prisma {
     _max?: NestedEnumAccountRoleFilter<$PrismaModel>
   }
 
-  export type DateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type StringNullableFilter<$PrismaModel = never> = {
@@ -7724,16 +7755,22 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type EnumPickupStatusFilter<$PrismaModel = never> = {
     equals?: $Enums.PickupStatus | EnumPickupStatusFieldRefInput<$PrismaModel>
     in?: $Enums.PickupStatus[] | ListEnumPickupStatusFieldRefInput<$PrismaModel>
     notIn?: $Enums.PickupStatus[] | ListEnumPickupStatusFieldRefInput<$PrismaModel>
     not?: NestedEnumPickupStatusFilter<$PrismaModel> | $Enums.PickupStatus
-  }
-
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type DeviceScalarRelationFilter = {
@@ -7790,20 +7827,6 @@ export namespace Prisma {
     requestForDelivery?: SortOrder
   }
 
-  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
-  }
-
   export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -7822,6 +7845,20 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type EnumPickupStatusWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.PickupStatus | EnumPickupStatusFieldRefInput<$PrismaModel>
     in?: $Enums.PickupStatus[] | ListEnumPickupStatusFieldRefInput<$PrismaModel>
@@ -7830,14 +7867,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumPickupStatusFilter<$PrismaModel>
     _max?: NestedEnumPickupStatusFilter<$PrismaModel>
-  }
-
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type CustomerListRelationFilter = {
@@ -7987,6 +8016,10 @@ export namespace Prisma {
     set?: $Enums.AccountRole
   }
 
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
+  }
+
   export type ServiceJobUpdateManyWithoutAccountNestedInput = {
     create?: XOR<ServiceJobCreateWithoutAccountInput, ServiceJobUncheckedCreateWithoutAccountInput> | ServiceJobCreateWithoutAccountInput[] | ServiceJobUncheckedCreateWithoutAccountInput[]
     connectOrCreate?: ServiceJobCreateOrConnectWithoutAccountInput | ServiceJobCreateOrConnectWithoutAccountInput[]
@@ -8041,20 +8074,16 @@ export namespace Prisma {
     connect?: ServiceJobWhereUniqueInput | ServiceJobWhereUniqueInput[]
   }
 
-  export type NullableDateTimeFieldUpdateOperationsInput = {
-    set?: Date | string | null
-  }
-
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
   }
 
-  export type EnumPickupStatusFieldUpdateOperationsInput = {
-    set?: $Enums.PickupStatus
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
+  export type EnumPickupStatusFieldUpdateOperationsInput = {
+    set?: $Enums.PickupStatus
   }
 
   export type DeviceUpdateOneRequiredWithoutCustomersNestedInput = {
@@ -8244,6 +8273,11 @@ export namespace Prisma {
     not?: NestedEnumAccountRoleFilter<$PrismaModel> | $Enums.AccountRole
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -8282,15 +8316,12 @@ export namespace Prisma {
     _max?: NestedEnumAccountRoleFilter<$PrismaModel>
   }
 
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedStringNullableFilter<$PrismaModel = never> = {
@@ -8307,19 +8338,7 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type NestedEnumPickupStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.PickupStatus | EnumPickupStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.PickupStatus[] | ListEnumPickupStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.PickupStatus[] | ListEnumPickupStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumPickupStatusFilter<$PrismaModel> | $Enums.PickupStatus
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -8327,21 +8346,14 @@ export namespace Prisma {
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedDateTimeNullableFilter<$PrismaModel>
-    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type NestedIntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  export type NestedEnumPickupStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.PickupStatus | EnumPickupStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.PickupStatus[] | ListEnumPickupStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.PickupStatus[] | ListEnumPickupStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumPickupStatusFilter<$PrismaModel> | $Enums.PickupStatus
   }
 
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -8361,6 +8373,31 @@ export namespace Prisma {
     _max?: NestedStringNullableFilter<$PrismaModel>
   }
 
+  export type NestedIntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type NestedEnumPickupStatusWithAggregatesFilter<$PrismaModel = never> = {
     equals?: $Enums.PickupStatus | EnumPickupStatusFieldRefInput<$PrismaModel>
     in?: $Enums.PickupStatus[] | ListEnumPickupStatusFieldRefInput<$PrismaModel>
@@ -8369,14 +8406,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumPickupStatusFilter<$PrismaModel>
     _max?: NestedEnumPickupStatusFilter<$PrismaModel>
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -8425,7 +8454,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     status: $Enums.ServiceJobStatus
-    descriptionOfDamage: string
+    descriptionOfDamage?: string | null
     updatedAt?: Date | string | null
     endAt?: Date | string | null
     customer: CustomerCreateNestedOneWithoutServiceJobsInput
@@ -8436,7 +8465,7 @@ export namespace Prisma {
     createdAt?: Date | string
     customerId: string
     status: $Enums.ServiceJobStatus
-    descriptionOfDamage: string
+    descriptionOfDamage?: string | null
     updatedAt?: Date | string | null
     endAt?: Date | string | null
   }
@@ -8476,7 +8505,7 @@ export namespace Prisma {
     customerId?: StringFilter<"ServiceJob"> | string
     accountId?: StringNullableFilter<"ServiceJob"> | string | null
     status?: EnumServiceJobStatusFilter<"ServiceJob"> | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFilter<"ServiceJob"> | string
+    descriptionOfDamage?: StringNullableFilter<"ServiceJob"> | string | null
     updatedAt?: DateTimeNullableFilter<"ServiceJob"> | Date | string | null
     endAt?: DateTimeNullableFilter<"ServiceJob"> | Date | string | null
   }
@@ -8515,7 +8544,7 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     status: $Enums.ServiceJobStatus
-    descriptionOfDamage: string
+    descriptionOfDamage?: string | null
     updatedAt?: Date | string | null
     endAt?: Date | string | null
     account?: AccountCreateNestedOneWithoutServiceJobsInput
@@ -8526,7 +8555,7 @@ export namespace Prisma {
     createdAt?: Date | string
     accountId?: string | null
     status: $Enums.ServiceJobStatus
-    descriptionOfDamage: string
+    descriptionOfDamage?: string | null
     updatedAt?: Date | string | null
     endAt?: Date | string | null
   }
@@ -8602,7 +8631,7 @@ export namespace Prisma {
   export type CustomerCreateWithoutDeviceInput = {
     id?: string
     fullName: string
-    devicePhoto: string
+    devicePhoto?: string | null
     complaint: string
     preferredPickupDate?: Date | string | null
     preferredPickupTime?: string | null
@@ -8616,7 +8645,7 @@ export namespace Prisma {
     id?: string
     fullName: string
     merkId: string
-    devicePhoto: string
+    devicePhoto?: string | null
     complaint: string
     preferredPickupDate?: Date | string | null
     preferredPickupTime?: string | null
@@ -8659,7 +8688,7 @@ export namespace Prisma {
     fullName?: StringFilter<"Customer"> | string
     deviceId?: StringFilter<"Customer"> | string
     merkId?: StringFilter<"Customer"> | string
-    devicePhoto?: StringFilter<"Customer"> | string
+    devicePhoto?: StringNullableFilter<"Customer"> | string | null
     complaint?: StringFilter<"Customer"> | string
     preferredPickupDate?: DateTimeNullableFilter<"Customer"> | Date | string | null
     preferredPickupTime?: StringNullableFilter<"Customer"> | string | null
@@ -8670,7 +8699,7 @@ export namespace Prisma {
   export type CustomerCreateWithoutMerkInput = {
     id?: string
     fullName: string
-    devicePhoto: string
+    devicePhoto?: string | null
     complaint: string
     preferredPickupDate?: Date | string | null
     preferredPickupTime?: string | null
@@ -8684,7 +8713,7 @@ export namespace Prisma {
     id?: string
     fullName: string
     deviceId: string
-    devicePhoto: string
+    devicePhoto?: string | null
     complaint: string
     preferredPickupDate?: Date | string | null
     preferredPickupTime?: string | null
@@ -8722,7 +8751,7 @@ export namespace Prisma {
   export type CustomerCreateWithoutServiceJobsInput = {
     id?: string
     fullName: string
-    devicePhoto: string
+    devicePhoto?: string | null
     complaint: string
     preferredPickupDate?: Date | string | null
     preferredPickupTime?: string | null
@@ -8737,7 +8766,7 @@ export namespace Prisma {
     fullName: string
     deviceId: string
     merkId: string
-    devicePhoto: string
+    devicePhoto?: string | null
     complaint: string
     preferredPickupDate?: Date | string | null
     preferredPickupTime?: string | null
@@ -8753,17 +8782,19 @@ export namespace Prisma {
   export type AccountCreateWithoutServiceJobsInput = {
     id?: string
     name: string
-    password: string
     email: string
+    password: string
     role?: $Enums.AccountRole
+    isVerified?: boolean
   }
 
   export type AccountUncheckedCreateWithoutServiceJobsInput = {
     id?: string
     name: string
-    password: string
     email: string
+    password: string
     role?: $Enums.AccountRole
+    isVerified?: boolean
   }
 
   export type AccountCreateOrConnectWithoutServiceJobsInput = {
@@ -8785,7 +8816,7 @@ export namespace Prisma {
   export type CustomerUpdateWithoutServiceJobsInput = {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8800,7 +8831,7 @@ export namespace Prisma {
     fullName?: StringFieldUpdateOperationsInput | string
     deviceId?: StringFieldUpdateOperationsInput | string
     merkId?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8822,17 +8853,19 @@ export namespace Prisma {
   export type AccountUpdateWithoutServiceJobsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: EnumAccountRoleFieldUpdateOperationsInput | $Enums.AccountRole
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type AccountUncheckedUpdateWithoutServiceJobsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
     role?: EnumAccountRoleFieldUpdateOperationsInput | $Enums.AccountRole
+    isVerified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type ServiceJobCreateManyAccountInput = {
@@ -8840,7 +8873,7 @@ export namespace Prisma {
     createdAt?: Date | string
     customerId: string
     status: $Enums.ServiceJobStatus
-    descriptionOfDamage: string
+    descriptionOfDamage?: string | null
     updatedAt?: Date | string | null
     endAt?: Date | string | null
   }
@@ -8849,7 +8882,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: EnumServiceJobStatusFieldUpdateOperationsInput | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFieldUpdateOperationsInput | string
+    descriptionOfDamage?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     customer?: CustomerUpdateOneRequiredWithoutServiceJobsNestedInput
@@ -8860,7 +8893,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     customerId?: StringFieldUpdateOperationsInput | string
     status?: EnumServiceJobStatusFieldUpdateOperationsInput | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFieldUpdateOperationsInput | string
+    descriptionOfDamage?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -8870,7 +8903,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     customerId?: StringFieldUpdateOperationsInput | string
     status?: EnumServiceJobStatusFieldUpdateOperationsInput | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFieldUpdateOperationsInput | string
+    descriptionOfDamage?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -8880,7 +8913,7 @@ export namespace Prisma {
     createdAt?: Date | string
     accountId?: string | null
     status: $Enums.ServiceJobStatus
-    descriptionOfDamage: string
+    descriptionOfDamage?: string | null
     updatedAt?: Date | string | null
     endAt?: Date | string | null
   }
@@ -8889,7 +8922,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     status?: EnumServiceJobStatusFieldUpdateOperationsInput | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFieldUpdateOperationsInput | string
+    descriptionOfDamage?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     account?: AccountUpdateOneWithoutServiceJobsNestedInput
@@ -8900,7 +8933,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accountId?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumServiceJobStatusFieldUpdateOperationsInput | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFieldUpdateOperationsInput | string
+    descriptionOfDamage?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -8910,7 +8943,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     accountId?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumServiceJobStatusFieldUpdateOperationsInput | $Enums.ServiceJobStatus
-    descriptionOfDamage?: StringFieldUpdateOperationsInput | string
+    descriptionOfDamage?: NullableStringFieldUpdateOperationsInput | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     endAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
@@ -8919,7 +8952,7 @@ export namespace Prisma {
     id?: string
     fullName: string
     merkId: string
-    devicePhoto: string
+    devicePhoto?: string | null
     complaint: string
     preferredPickupDate?: Date | string | null
     preferredPickupTime?: string | null
@@ -8930,7 +8963,7 @@ export namespace Prisma {
   export type CustomerUpdateWithoutDeviceInput = {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8944,7 +8977,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
     merkId?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8957,7 +8990,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
     merkId?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8969,7 +9002,7 @@ export namespace Prisma {
     id?: string
     fullName: string
     deviceId: string
-    devicePhoto: string
+    devicePhoto?: string | null
     complaint: string
     preferredPickupDate?: Date | string | null
     preferredPickupTime?: string | null
@@ -8980,7 +9013,7 @@ export namespace Prisma {
   export type CustomerUpdateWithoutMerkInput = {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8994,7 +9027,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
     deviceId?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9007,7 +9040,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     fullName?: StringFieldUpdateOperationsInput | string
     deviceId?: StringFieldUpdateOperationsInput | string
-    devicePhoto?: StringFieldUpdateOperationsInput | string
+    devicePhoto?: NullableStringFieldUpdateOperationsInput | string | null
     complaint?: StringFieldUpdateOperationsInput | string
     preferredPickupDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     preferredPickupTime?: NullableStringFieldUpdateOperationsInput | string | null

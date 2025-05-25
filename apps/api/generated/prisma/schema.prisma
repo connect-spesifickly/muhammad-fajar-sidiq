@@ -20,11 +20,12 @@ enum AccountRole {
 }
 
 model Account {
-  id       String      @id @default(uuid())
-  name     String      @unique @map("name")
-  password String      @unique @map("password")
-  email    String      @unique @map("email")
-  role     AccountRole @default(Technician) @map("role")
+  id         String      @id @default(uuid())
+  name       String      @unique @map("name")
+  email      String      @unique @map("email")
+  password   String      @unique @map("password")
+  role       AccountRole @default(Technician) @map("role")
+  isVerified Boolean     @default(false) @map("is_verified")
 
   serviceJobs ServiceJob[]
 
@@ -45,7 +46,7 @@ model Customer {
   device              Device       @relation(fields: [deviceId], references: [id])
   merkId              String       @map("merk_id")
   merk                Merk         @relation(fields: [merkId], references: [id])
-  devicePhoto         String       @map("device_photo")
+  devicePhoto         String?      @map("device_photo")
   complaint           String       @map("complaint")
   preferredPickupDate DateTime?    @map("preferred_pickup_date")
   preferredPickupTime String?      @map("preferred_pickup_time")
@@ -90,7 +91,7 @@ model ServiceJob {
   accountId           String?          @map("account_id")
   account             Account?         @relation(fields: [accountId], references: [id])
   status              ServiceJobStatus @map("status")
-  descriptionOfDamage String           @map("description_of_damage")
+  descriptionOfDamage String?          @map("description_of_damage")
   updatedAt           DateTime?        @updatedAt @map("updated_at")
   endAt               DateTime?        @map("end_at")
 

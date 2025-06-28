@@ -1,4 +1,4 @@
-### 👋 Halo, saya [Nama Anda]!
+### 👋 Halo, saya Muhammad Fajar Sidiq!
 
 Saya seorang **Fullstack Developer** yang bersemangat dalam membangun aplikasi web yang responsive dan good experince serta mempelajari tools baru dalam pengembangan web app.
 

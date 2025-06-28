@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { authRouter } from "./auth.router";
+import { emailRouter } from "./email.router";
 
 const apiRouter = Router();
 
-apiRouter.use("/auth", authRouter());
+apiRouter.use("/email", emailRouter());
 
 export default apiRouter;

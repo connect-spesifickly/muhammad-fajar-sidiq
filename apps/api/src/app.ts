@@ -5,7 +5,6 @@ import express, {
   Request,
   Response,
   NextFunction,
-  Router,
 } from "express";
 import cors from "cors";
 import jwt from "jsonwebtoken";

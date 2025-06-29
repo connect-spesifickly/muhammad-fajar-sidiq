@@ -1,3 +1,4 @@
+import { Footer } from "@/components/ui/footer/page";
 import { Navbar } from "@/components/ui/navbar/page";
 
 export default async function MainLayout({
@@ -10,6 +11,7 @@ export default async function MainLayout({
       <Navbar />
 
       <main className="">{children}</main>
+      <Footer />
     </div>
   );
 }

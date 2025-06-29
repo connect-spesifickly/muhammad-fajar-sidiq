@@ -6,8 +6,6 @@ import { AtSign } from "lucide-react";
 import {
   Form,
   FormItem,
-  FormLabel,
-  FormControl,
   FormMessage,
   FormField,
 } from "@/components/shadcn-ui/form";
@@ -50,6 +48,8 @@ export function Contact() {
                 <a
                   href="https://wa.me/+62895339427085"
                   className="text-xl font-light text-gray-800 underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   +62 895-3394-27085
                 </a>
@@ -77,17 +77,15 @@ export function Contact() {
                   name="name"
                   render={({ field }) => (
                     <FormItem className="w-full">
-                      <FormLabel className="font-semibold">
-                        Your Name *
-                      </FormLabel>
-                      <FormControl>
+                      <label className="text-lg ">Your Name *</label>
+                      <div>
                         <input
                           type="text"
                           placeholder="Ex. Immanuel Janis"
                           {...field}
-                          className="w-full px-4 py-3 text-base border rounded-2xl focus:outline-none focus:ring"
+                          className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
                         />
-                      </FormControl>
+                      </div>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -98,15 +96,15 @@ export function Contact() {
                   name="email"
                   render={({ field }) => (
                     <FormItem className="w-full">
-                      <FormLabel className="font-semibold">Email *</FormLabel>
-                      <FormControl>
+                      <label className="text-lg">Email *</label>
+                      <div>
                         <input
                           type="email"
                           placeholder="Ex. immanuel@gmail.com"
                           {...field}
-                          className="w-full px-4 py-3 text-base border rounded-2xl focus:outline-none focus:ring"
+                          className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
                         />
-                      </FormControl>
+                      </div>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -117,17 +115,15 @@ export function Contact() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem className="w-full col-span-1 md:col-span-2">
-                      <FormLabel className="font-semibold">
-                        Phone Number *
-                      </FormLabel>
-                      <FormControl>
+                      <label className="text-lg">Phone Number *</label>
+                      <div>
                         <input
                           type="tel"
                           placeholder="Enter Phone Number"
                           {...field}
-                          className="w-full px-4 py-3 text-base border rounded-2xl focus:outline-none focus:ring"
+                          className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
                         />
-                      </FormControl>
+                      </div>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -138,26 +134,24 @@ export function Contact() {
                   name="message"
                   render={({ field }) => (
                     <FormItem className="w-full col-span-1 md:col-span-2">
-                      <FormLabel className="font-semibold">
-                        Leave Message *
-                      </FormLabel>
-                      <FormControl>
+                      <label className="text-lg">Leave Message *</label>
+                      <div>
                         <textarea
                           rows={4}
                           placeholder="Type your message"
                           {...field}
-                          className="w-full px-4 py-3 text-base border rounded-2xl focus:outline-none focus:ring"
+                          className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
                         />
-                      </FormControl>
+                      </div>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                {/* Submit Button (full width, right) */}
-                <div className="flex justify-end col-span-1 md:col-span-2">
+                {/* Submit Button (full width, start) */}
+                <div className="flex justify-center col-span-1 lg:justify-start md:col-span-2 lg:pl-28">
                   <Button
                     type="submit"
-                    className="flex items-center gap-2 px-8 py-3 text-base font-semibold rounded-2xl"
+                    className="flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-gray-300 hover:border hover:bg-white hover:border-black rounded-2xl"
                   >
                     Submit
                     <svg

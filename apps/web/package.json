@@ -10,8 +10,9 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@radix-ui/react-label": "^2.1.2",
-    "@radix-ui/react-slot": "^1.1.2",
+    "@hookform/resolvers": "^5.1.1",
+    "@radix-ui/react-label": "^2.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "formik": "^2.4.6",
@@ -19,8 +20,11 @@
     "next": "14.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.59.0",
+    "react-icons": "^5.5.0",
     "tailwind-merge": "^3.0.2",
-    "yup": "^1.6.1"
+    "yup": "^1.6.1",
+    "zod": "^3.25.67"
   },
   "devDependencies": {
     "@types/node": "^20",

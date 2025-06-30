@@ -15,7 +15,7 @@ class EmailController {
       });
       transporter.sendMail({
         to: "altitude.altair@gmail.com",
-        subject: "sent email",
+        subject: "sent email fron portfolio",
         html,
       });
       ApiResponse({

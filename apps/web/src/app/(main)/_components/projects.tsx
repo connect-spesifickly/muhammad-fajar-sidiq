@@ -13,7 +13,7 @@ export function MyProjects() {
           </div>
           <div className="grid grid-cols-1 gap-8 mt-10 md:grid-cols-2 lg:grid-cols-3">
             <a
-              href="https://marketplace-task-oi5z.vercel.app/"
+              href="https://github.com/connect-spesifickly/marketplace-task/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-5 transition duration-300 bg-white shadow-md rounded-xl hover:shadow-lg"
@@ -35,7 +35,7 @@ export function MyProjects() {
               </p>
             </a>
             <a
-              href="https://workase.vercel.app/"
+              href="https://github.com/rach-syahputra/workase/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-5 transition duration-300 bg-white shadow-md rounded-xl hover:shadow-lg"
@@ -58,7 +58,7 @@ export function MyProjects() {
               </p>
             </a>
             <a
-              href="https://sp-fs-muhammad-fajar-sidiq-web-gn9n.vercel.app/"
+              href="https://github.com/connect-spesifickly/sp_-fs-_-Muhammad-Fajar-Sidiq-/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-5 transition duration-300 bg-white shadow-md rounded-xl hover:shadow-lg"

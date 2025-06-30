@@ -3,12 +3,6 @@ import { Container } from "@/components/ui/container";
 import * as React from "react";
 import { Phone } from "lucide-react";
 import { AtSign } from "lucide-react";
-import {
-  Form,
-  FormItem,
-  FormMessage,
-  FormField,
-} from "@/components/shadcn-ui/form";
 import { Button } from "@/components/shadcn-ui/button";
 import { useForm } from "react-hook-form";
 import { api } from "@/utils/axios";
@@ -78,112 +72,106 @@ export function Contact() {
             </div>
           </div>
           <div className="grid col-span-2 gap-5">
-            <Form {...form}>
-              <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="grid w-full grid-cols-1 gap-4 md:grid-cols-2"
-              >
-                {/* Your Name */}
-                <FormField
-                  control={form.control}
-                  name="name"
-                  render={({ field }) => (
-                    <FormItem className="w-full">
-                      <label className="text-lg">Your Name *</label>
-                      <div>
-                        <input
-                          type="text"
-                          placeholder="Ex. Immanuel Janis"
-                          {...field}
-                          className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
-                        />
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                {/* Email */}
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem className="w-full">
-                      <label className="text-lg">Email *</label>
-                      <div>
-                        <input
-                          type="email"
-                          placeholder="Ex. immanuel@gmail.com"
-                          {...field}
-                          className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
-                        />
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                {/* Phone Number (full width) */}
-                <FormField
-                  control={form.control}
-                  name="phoneNumber"
-                  render={({ field }) => (
-                    <FormItem className="w-full col-span-1 md:col-span-2">
-                      <label className="text-lg">Phone Number *</label>
-                      <div>
-                        <input
-                          type="tel"
-                          placeholder="Enter Phone Number"
-                          {...field}
-                          className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
-                        />
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                {/* Leave Message (full width) */}
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem className="w-full col-span-1 md:col-span-2">
-                      <label className="text-lg">Leave Message *</label>
-                      <div>
-                        <textarea
-                          rows={4}
-                          placeholder="Type your message"
-                          {...field}
-                          className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
-                        />
-                      </div>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                {/* Submit Button (full width, start) */}
-                <div className="flex justify-center col-span-1 lg:justify-start md:col-span-2 lg:pl-28">
-                  <Button
-                    type="submit"
-                    className="flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-gray-300 rounded-2xl hover:border hover:bg-white hover:border-black"
-                  >
-                    Submit
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="w-5 h-5"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17.25 6.75L21 12m0 0l-3.75 5.25M21 12H3"
-                      />
-                    </svg>
-                  </Button>
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="grid w-full grid-cols-1 gap-4 md:grid-cols-2"
+            >
+              {/* Your Name */}
+              <div className="w-full">
+                <label className="text-lg ">Your Name *</label>
+                <div className="mt-2">
+                  <input
+                    type="text"
+                    placeholder="Ex. Immanuel Janis"
+                    {...form.register("name")}
+                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
+                  />
                 </div>
-              </form>
-            </Form>
+                {form.formState.errors.name && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {form.formState.errors.name.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Email */}
+              <div className="w-full">
+                <label className="text-lg">Email *</label>
+                <div className="mt-2">
+                  <input
+                    type="email"
+                    placeholder="Ex. immanuel@gmail.com"
+                    {...form.register("email")}
+                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
+                  />
+                </div>
+                {form.formState.errors.email && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {form.formState.errors.email.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Phone Number (full width) */}
+              <div className="w-full col-span-1 md:col-span-2">
+                <label className="text-lg">Phone Number *</label>
+                <div className="mt-2">
+                  <input
+                    type="tel"
+                    placeholder="Enter Phone Number"
+                    {...form.register("phoneNumber")}
+                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
+                  />
+                </div>
+                {form.formState.errors.phoneNumber && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {form.formState.errors.phoneNumber.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Leave Message (full width) */}
+              <div className="w-full col-span-1 md:col-span-2">
+                <label className="text-lg">Leave Message *</label>
+                <div className="mt-2">
+                  <textarea
+                    rows={4}
+                    placeholder="Type your message"
+                    {...form.register("message")}
+                    className="w-full px-4 py-3 text-base border border-gray-300 rounded-2xl focus:outline-none focus:ring"
+                  />
+                </div>
+                {form.formState.errors.message && (
+                  <p className="mt-1 text-sm text-red-500">
+                    {form.formState.errors.message.message}
+                  </p>
+                )}
+              </div>
+
+              {/* Submit Button (full width, start) */}
+              <div className="flex justify-center col-span-1 lg:justify-start md:col-span-2 lg:pl-28">
+                <Button
+                  type="submit"
+                  className="flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-gray-300 rounded-2xl hover:border hover:bg-white hover:border-black"
+                >
+                  Submit
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-5 h-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17.25 6.75L21 12m0 0l-3.75 5.25M21 12H3"
+                    />
+                  </svg>
+                </Button>
+              </div>
+            </form>
           </div>
         </div>
       </Container>

@@ -1,4 +1,4 @@
-import { Container } from "@/app/components/container";
+import { Container } from "@/components/ui/container";
 import Image from "next/image";
 import * as React from "react";
 

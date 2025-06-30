@@ -11,10 +11,14 @@ export default function Home() {
     <div className="">
       <HeroPage />
       <MyExperiences />
-      <MyProjects />
+      <div className="" id="projects">
+        <MyProjects />
+      </div>
       <TechStack />
       <AcademicJourney />
-      <Contact />
+      <div className="" id="contact">
+        <Contact />
+      </div>
     </div>
   );
 }

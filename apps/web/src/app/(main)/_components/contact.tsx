@@ -1,5 +1,5 @@
 "use client";
-import { Container } from "@/app/components/container";
+import { Container } from "@/components/ui/container";
 import * as React from "react";
 import { Phone } from "lucide-react";
 import { AtSign } from "lucide-react";
@@ -11,20 +11,30 @@ import {
 } from "@/components/shadcn-ui/form";
 import { Button } from "@/components/shadcn-ui/button";
 import { useForm } from "react-hook-form";
+import { api } from "@/utils/axios";
 
 export function Contact() {
   const form = useForm({
     defaultValues: {
       name: "",
       email: "",
-      phone: "",
+      phoneNumber: "",
       message: "",
     },
   });
 
   function onSubmit(data: any) {
     // handle submit
-    console.log(data);
+    const response = api.post("/email", data);
+    response
+      .then((res) => {
+        console.log("Email sent successfully:", res.data);
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Error sending email:", error);
+      });
+    console.log("Form submitted:", data);
   }
 
   return (
@@ -112,7 +122,7 @@ export function Contact() {
                 {/* Phone Number (full width) */}
                 <FormField
                   control={form.control}
-                  name="phone"
+                  name="phoneNumber"
                   render={({ field }) => (
                     <FormItem className="w-full col-span-1 md:col-span-2">
                       <label className="text-lg">Phone Number *</label>

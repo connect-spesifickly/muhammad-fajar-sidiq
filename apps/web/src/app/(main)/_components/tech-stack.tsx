@@ -9,6 +9,10 @@ export function TechStack() {
       src: "devicon-nextjs-original-wordmark colored scale-125",
     },
     {
+      name: "React",
+      src: "devicon-react-original-wordmark colored scale-75",
+    },
+    {
       name: "Tailwind CSS",
       src: "devicon-tailwindcss-plain-wordmark colored scale-150",
     },

@@ -10,7 +10,7 @@ config({ path: resolve(__dirname, `../${envFile}`) });
 config({ path: resolve(__dirname, `../${envFile}.local`), override: true });
 
 export const corsOptions: CorsOptions = {
-  origin: ["http://localhost:3000"],
+  origin: ["http://localhost:3000", "https://muhammad-fajar-sidiq.vercel.app/"],
   credentials: true,
 };
 

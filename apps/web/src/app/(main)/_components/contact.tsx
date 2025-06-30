@@ -27,12 +27,14 @@ export function Contact() {
     // handle submit
     const response = api.post("/email", data);
     response
-      .then((res) => {
-        console.log("Email sent successfully:", res.data);
+      .then(() => {
+        console.log("Email sent successfully");
+        alert("Email sent successfully!");
         form.reset();
       })
       .catch((error) => {
         console.error("Error sending email:", error);
+        alert("Error sending email. Please try again later.");
       });
     console.log("Form submitted:", data);
   }
@@ -87,7 +89,7 @@ export function Contact() {
                   name="name"
                   render={({ field }) => (
                     <FormItem className="w-full">
-                      <label className="text-lg ">Your Name *</label>
+                      <label className="text-lg">Your Name *</label>
                       <div>
                         <input
                           type="text"
@@ -161,7 +163,7 @@ export function Contact() {
                 <div className="flex justify-center col-span-1 lg:justify-start md:col-span-2 lg:pl-28">
                   <Button
                     type="submit"
-                    className="flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-gray-300 hover:border hover:bg-white hover:border-black rounded-2xl"
+                    className="flex items-center gap-2 px-6 py-3 text-sm font-semibold bg-gray-300 rounded-2xl hover:border hover:bg-white hover:border-black"
                   >
                     Submit
                     <svg

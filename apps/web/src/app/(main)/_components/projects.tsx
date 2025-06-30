@@ -20,7 +20,7 @@ export function MyProjects() {
             >
               <div className="relative w-full h-48 overflow-hidden rounded-lg ">
                 <Image
-                  className="absolute h-[100%] w-fit size-[100%] left-0 top-0 right-0 bottom-0 tranparent object-cover"
+                  className="absolute h-[100%] w-[100%] size-[100%] left-0 top-0 right-0 bottom-0 tranparent object-cover"
                   src="/blibli.png"
                   alt="Blibli Clone"
                   width={500}
@@ -42,7 +42,7 @@ export function MyProjects() {
             >
               <div className="relative w-full h-48 overflow-hidden rounded-lg ">
                 <Image
-                  className="absolute h-[100%] w-fit  size-[100%] left-0 top-0 right-0 bottom-0 tranparent object-cover"
+                  className="absolute h-[100%] w-[100%]  size-[100%] left-0 top-0 right-0 bottom-0 tranparent object-cover"
                   src="/workase.png"
                   alt="Workase"
                   width={500}
@@ -65,7 +65,7 @@ export function MyProjects() {
             >
               <div className="relative w-full h-48 overflow-hidden rounded-lg ">
                 <Image
-                  className="absolute h-[100%] w-fit size-[80vw] left-0 top-0 right-0 bottom-0 tranparent object-cover"
+                  className="absolute h-[100%] w-[100%] size-[80vw] left-0 top-0 right-0 bottom-0 tranparent object-cover"
                   src="/management-app.png"
                   alt="Management App"
                   width={500}
